@@ -1,14 +1,17 @@
 // Environment configuration
+const isNetlify = window.location.hostname.includes('netlify.app');
+const isLocal = window.location.hostname === 'localhost';
+
 const config = {
   development: {
-    API_URL: process.env.REACT_APP_API_URL || 'http://localhost:5000',
-    SOCKET_URL: process.env.REACT_APP_SOCKET_URL || 'http://localhost:5000',
+    API_URL: 'http://localhost:5000',
+    SOCKET_URL: 'http://localhost:5000',
   },
   production: {
-    API_URL: process.env.REACT_APP_API_URL || window.location.origin + '/api',
-    SOCKET_URL: process.env.REACT_APP_SOCKET_URL || window.location.origin,
+    API_URL: isNetlify ? window.location.origin + '/.netlify/functions' : (process.env.REACT_APP_API_URL || window.location.origin + '/api'),
+    SOCKET_URL: isNetlify ? window.location.origin : (process.env.REACT_APP_SOCKET_URL || window.location.origin),
   }
 };
 
-const environment = process.env.NODE_ENV || 'development';
+const environment = isLocal ? 'development' : 'production';
 export default config[environment];
