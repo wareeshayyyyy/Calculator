@@ -1,39 +1,19 @@
 {
-  "name": "calculator-media-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^6.8.0",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
-  },
+  "name": "calculator-media-app-full",
+  "version": "1.0.0",
+  "description": "Calculator Media App with hidden recording and live streaming",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "cd client && npm install && npm run build",
+    "start": "cd server && npm start",
+    "install-all": "cd client && npm install && cd ../server && npm install",
+    "dev": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
+    "deploy": "npm run build && vercel --prod",
+    "vercel-build": "cd client && npm install && npm run build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

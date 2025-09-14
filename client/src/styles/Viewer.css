@@ -1,0 +1,91 @@
+.viewer-mode {
+  height: 100vh;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.status-banner {
+  background: rgba(0,0,0,0.5);
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.connection-info {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+}
+
+.connection-info strong {
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.connected {
+  color: #4CAF50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.connecting {
+  color: #FFC107;
+}
+
+.pulse {
+  width: 10px;
+  height: 10px;
+  background: #4CAF50;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.viewer-video {
+  max-width: 100%;
+  width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  background: #000;
+}
+
+.viewer-footer {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.viewer-footer p {
+  margin: 5px 0;
+  color: #b0b0b0;
+}
+
+.viewer-footer p:first-child {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}

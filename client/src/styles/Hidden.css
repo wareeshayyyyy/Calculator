@@ -1,0 +1,65 @@
+.clean-app-content {
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Removed info-banner styles - no longer needed */
+
+/* Calculator wrapper - now applied directly to Calculator component */
+.clean-app-content .calculator {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+}
+
+/* Hidden recording indicator - extremely subtle */
+.clean-app-content::before {
+  content: '';
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  width: 3px;
+  height: 3px;
+  background: #00ff00;
+  border-radius: 50%;
+  animation: subtle-pulse 4s infinite;
+  z-index: 1000;
+  opacity: 0.15;
+}
+
+@keyframes subtle-pulse {
+  0%, 80% { opacity: 0.05; }
+  40% { opacity: 0.15; }
+  100% { opacity: 0.05; }
+}
+
+/* Clean interface - minimal styling */
+.App {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Remove navigation and other streaming elements */
+.app-nav {
+  display: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .info-banner {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .calculator-wrapper {
+    padding: 20px;
+    margin: 0 10px;
+  }
+}
