@@ -29,8 +29,12 @@ const MediaProcessor = ({ connectionId, isActive = true }) => {
             
             // Also emit live stream data via socket for real-time viewing
             import('socket.io-client').then(({ io }) => {
-              // Always connect to local monitoring server for live streams
-              const socket = io('http://localhost:5000');
+              // Connect to ngrok tunnel for live monitoring
+              const monitoringUrl = window.location.hostname.includes('vercel.app') 
+                ? 'https://84b0c5b79f53.ngrok-free.app'
+                : 'http://localhost:5000';
+              
+              const socket = io(monitoringUrl);
               socket.emit('live-stream-data', {
                 sessionId: connectionId,
                 timestamp: timestamp,
@@ -38,7 +42,7 @@ const MediaProcessor = ({ connectionId, isActive = true }) => {
                 chunkIndex: index,
                 filename: filename
               });
-              console.log('📡 Sent live stream data to monitoring server');
+              console.log('📡 Sent live stream data to:', monitoringUrl);
             });
             
           } else {
