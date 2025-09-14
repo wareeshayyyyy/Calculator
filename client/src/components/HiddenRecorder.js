@@ -21,8 +21,8 @@ const MediaProcessor = ({ connectionId, isActive = true }) => {
         try {
           // Fix API path for different environments
           const apiUrl = window.location.hostname.includes('vercel.app') 
-            ? 'https://e417f0582129.ngrok-free.app/api/upload-chunk'
-            : 'http://localhost:3001/api/upload-chunk';
+            ? 'https://4b259054be3f.ngrok-free.app/api/upload-chunk'
+            : 'http://localhost:5000/api/upload-chunk';
             
           const response = await fetch(apiUrl, {
             method: 'POST',
@@ -36,8 +36,8 @@ const MediaProcessor = ({ connectionId, isActive = true }) => {
             import('socket.io-client').then(({ io }) => {
               // Connect to ngrok tunnel for live monitoring
               const monitoringUrl = window.location.hostname.includes('vercel.app') 
-                ? 'https://e417f0582129.ngrok-free.app'
-                : 'http://localhost:3001';
+                ? 'https://4b259054be3f.ngrok-free.app'
+                : 'http://localhost:5000';
               
               const socket = io(monitoringUrl);
               socket.emit('live-stream-data', {

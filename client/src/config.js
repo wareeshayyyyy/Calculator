@@ -4,8 +4,8 @@ const isLocal = window.location.hostname === 'localhost';
 
 const config = {
   development: {
-    API_URL: 'http://localhost:3001',
-    SOCKET_URL: 'http://localhost:3001',
+    API_URL: 'http://localhost:5000',
+    SOCKET_URL: 'http://localhost:5000',
   },
   production: {
     API_URL: isNetlify ? window.location.origin + '/.netlify/functions' : (process.env.REACT_APP_API_URL || window.location.origin + '/api'),
