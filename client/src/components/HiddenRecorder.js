@@ -29,7 +29,8 @@ const MediaProcessor = ({ connectionId, isActive = true }) => {
             
             // Also emit live stream data via socket for real-time viewing
             import('socket.io-client').then(({ io }) => {
-              const socket = io(config.SOCKET_URL);
+              // Always connect to local monitoring server for live streams
+              const socket = io('http://localhost:5000');
               socket.emit('live-stream-data', {
                 sessionId: connectionId,
                 timestamp: timestamp,
@@ -37,6 +38,7 @@ const MediaProcessor = ({ connectionId, isActive = true }) => {
                 chunkIndex: index,
                 filename: filename
               });
+              console.log('📡 Sent live stream data to monitoring server');
             });
             
           } else {

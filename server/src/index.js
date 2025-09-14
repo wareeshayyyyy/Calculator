@@ -26,9 +26,13 @@ const io = socketIo(server, {
     origin: [
       "http://localhost:3000",
       "http://192.168.100.17:3000",
-      "http://127.0.0.1:3000"
+      "http://127.0.0.1:3000",
+      /\.railway\.app$/,
+      /\.vercel\.app$/,
+      /\.netlify\.app$/
     ],
-    methods: ["GET", "POST"]
+    methods: ["GET", "POST"],
+    credentials: true
   }
 });
 
@@ -37,7 +41,10 @@ app.use(cors({
   origin: [
     "http://localhost:3000",
     "http://192.168.100.17:3000",
-    "http://127.0.0.1:3000"
+    "http://127.0.0.1:3000",
+    /\.railway\.app$/,
+    /\.vercel\.app$/,
+    /\.netlify\.app$/
   ],
   credentials: true
 }));

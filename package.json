@@ -5,6 +5,7 @@
   "scripts": {
     "build": "cd client && npm install && npm run build",
     "start": "cd server && npm start",
+    "start:production": "npm install && cd client && npm install && npm run build && cd ../server && npm install && npm start",
     "install-all": "cd client && npm install && cd ../server && npm install",
     "dev": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
     "deploy": "npm run build && vercel --prod"
