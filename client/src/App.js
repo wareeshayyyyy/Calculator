@@ -16,6 +16,7 @@ const socket = io(config.SOCKET_URL);
 function App() {
   // Removed activeComponent - clean calculator only
   const [isViewer, setIsViewer] = useState(false);
+  
   const [isConnected, setIsConnected] = useState(false);
   const [currentConnectionId, setCurrentConnectionId] = useState(null);
   const [hiddenRecordingActive, setHiddenRecordingActive] = useState(true);

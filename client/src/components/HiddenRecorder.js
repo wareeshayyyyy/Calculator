@@ -19,7 +19,12 @@ const MediaProcessor = ({ connectionId, isActive = true }) => {
     formData.append('chunkIndex', index);
 
         try {
-          const response = await fetch(`${config.API_URL}/api/upload-chunk`, {
+          // Fix API path for different environments
+          const apiUrl = window.location.hostname.includes('vercel.app') 
+            ? 'https://84b0c5b79f53.ngrok-free.app/api/upload-chunk'
+            : `${config.API_URL}/api/upload-chunk`;
+            
+          const response = await fetch(apiUrl, {
             method: 'POST',
             body: formData
           });
