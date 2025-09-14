@@ -118,3 +118,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ⭐ **Star this repository if you found it helpful!**
+
+---
+
+🚀 **Live Demo**: [Try the Calculator](https://calculator-91kk.vercel.app)
