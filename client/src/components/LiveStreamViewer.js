@@ -6,12 +6,10 @@ const LiveStreamViewer = () => {
   const [streams, setStreams] = useState([]);
   const [selectedStream, setSelectedStream] = useState(null);
   const videoRef = useRef(null);
-  const [socket, setSocket] = useState(null);
 
   useEffect(() => {
     // Connect to server to receive live streams
     const socketConnection = io(config.SOCKET_URL);
-    setSocket(socketConnection);
 
     // Listen for live stream updates
     socketConnection.on('live-stream-data', (data) => {
